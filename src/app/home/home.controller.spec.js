@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('owmapp'));
+  beforeEach(module('OWMApp'));
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();

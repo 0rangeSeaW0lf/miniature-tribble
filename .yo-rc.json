@@ -28,9 +28,8 @@
         "module": null
       },
       "router": {
-        "name": "angular-ui-router",
-        "version": "~0.2.13",
-        "module": "ui.router"
+        "name": "angular-route",
+        "module": "ngRoute"
       },
       "ui": {
         "name": "bootstrap-sass-official",

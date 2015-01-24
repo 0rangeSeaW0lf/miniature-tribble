@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('owmapp')
-  .controller('CityCtrl', function ($scope, $stateParams) {
-      $scope.city = $stateParams.city;
+angular.module('OWMApp')
+  .controller('CityCtrl', function ($scope, $routeParams) {
+    $scope.city = $routeParams.city;
   });

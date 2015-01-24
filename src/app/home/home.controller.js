@@ -1,5 +1,6 @@
 'use strict';
 
-angular.module('owmapp')
+angular.module('OWMApp')
   .controller('HomeCtrl', function ($scope) {
+    
   });

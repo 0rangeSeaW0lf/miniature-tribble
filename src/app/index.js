@@ -1,34 +1,38 @@
 'use strict';
 
-angular.module('owmapp', ['ngAnimate', 'ngSanitize', 'ui.router', 'mgcrea.ngStrap'])
+angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'])
   .value('owmCities',
-        ['Amsterdam', 'Paris', 'London', 'Berlin'])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('home', {
-        url: '/',
+        ['Amsterdam', 'Berlin', 'London', 'Milan', 'Paris'])
+  .config(function ($routeProvider, $locationProvider) {
+
+    $routeProvider
+      .when('/', {
         templateUrl: 'app/home/home.html',
-        controller: 'HomeCtrl'})
-      .state('city',{
-        url: '/cities/:city',
+        controller: 'HomeCtrl as home'
+      })
+      .when('/cities/:city', {
         templateUrl: 'app/city/city.html',
-        controller: 'CityCtrl',
-        resolve:{
-          city: function(owmCities, $stateParams, $state){
-            var city = $stateParams.city;
+        controller: 'CityCtrl as cities',
+        resolve: {
+          city: function(owmCities, $route, $location){
+            var city = $route.current.params.city;
             if(owmCities.indexOf(city) == -1 ) {
-              console.log("Doesn't exist");
-              $state.go('error');
-              return;
-          }
+                $location.path('/error');
+                return;
+            }
             return city;
           }
         }
       })
-      .state('error',{
-        url: '/error',
-        templateUrl: 'app/error.html'
+      .when('/error', {
+        templateUrl: '404.html'
       });
 
-    $urlRouterProvider.otherwise('/');
-  });
+    // $locationProvider.html5Mode(true);
+
+  })
+  .run(function($rootScope, $location) {
+    $rootScope.$on('$routeChangeError', function() {
+        $location.path('/error');
+    });
+});
