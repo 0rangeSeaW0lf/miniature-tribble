@@ -2,19 +2,18 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
-        <span class="glyphicon glyphicon-home"></span> Open Weather
+        <span class="glyphicon glyphicon-certificate"></span> Open Weather Map
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav">
-        <li class="active"><a ng-href="#">Home</a></li>
-        <li><a ng-href="#">About</a></li>
-        <li><a ng-href="#">Contact</a></li>
+        <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+        <li ui-sref-active="active"><a ui-sref="city">City</a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">Current date: {{ date | date:'dd-MMM-yyyy' }}</li>
+      <ul class="nav navbar-nav navbar-right navbar-text">
+        <li>Current date: {{ date | date:'dd-MMM-yyyy' }}</li>
       </ul>
     </div>
   </div>

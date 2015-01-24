@@ -27,8 +27,8 @@ function browserSyncInit(baseDir, files, browser) {
       middleware: middleware,
       routes: routes
     },
-    port:8080,
-    browser: browser
+    browser: browser,
+    port: 8080
   });
 }
 
@@ -38,7 +38,7 @@ gulp.task('serve', ['watch'], function () {
     paths.src
   ], [
     paths.tmp + '/serve/{app,components}/**/*.css',
-    paths.tmp + '/serve/{app,components}/**/*.js',
+    paths.src + '/{app,components}/**/*.js',
     paths.src + 'src/assets/images/**/*',
     paths.tmp + '/serve/*.html',
     paths.tmp + '/serve/{app,components}/**/*.html',
