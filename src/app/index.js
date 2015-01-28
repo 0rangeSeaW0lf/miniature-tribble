@@ -42,6 +42,6 @@ angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'
         templateUrl: '404.html'
       });
 
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 
   });

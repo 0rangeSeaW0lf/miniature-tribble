@@ -1,12 +1,12 @@
-body, html
-  min-height: 100vh
-
 .jumbotron
   background-color: white
   margin-top: -71px
+  margin-bottom: 0px
+  height: 100vh
   display: flex
   align-items: center
   justify-content: center
+
 
 .child
   align-self: center
@@ -26,18 +26,9 @@ body, html
     background: rgba(255,255,255,0.9) no-repeat center center
     background-image: image-url('../assets/images/loading-animation.gif')
 
-// .animate-view.ng-enter, .animate-view.ng-leave
-//   transition: 1s linear all
-
-// .animate-view.ng-enter, .animate-view.ng-leave.ng-leave-active
-//   opacity: 0
-
-// .animate-view.ng-enter.ng-enter-active, .animate-view.ng-leave
-//   opacity: 1
-
 .animate-view-container
   position:relative
-  min-height: 100vh
+  height: 100vh
 
 .animate-view.ng-enter, .animate-view.ng-leave
   transition: 1s linear all
