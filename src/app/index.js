@@ -9,6 +9,7 @@ angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'
     });
     $rootScope.$on('$routeChangeStart', function() {
         $rootScope.isLoading = true;
+        console.log('Transition starts');
     });
     $rootScope.$on('$routeChangeSuccess', function() {
       $timeout(function() {
