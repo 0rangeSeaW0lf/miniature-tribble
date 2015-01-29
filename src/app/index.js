@@ -41,7 +41,4 @@ angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'
       .when('/error', {
         templateUrl: '404.html'
       });
-
-    $locationProvider.html5Mode(true);
-
   });
