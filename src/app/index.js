@@ -3,20 +3,6 @@
 angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'])
   .value('owmCities',
         ['Amsterdam', 'Berlin', 'London', 'Milan', 'Paris'])
-  .run(function($rootScope, $location, $timeout) {
-    $rootScope.$on('$routeChangeError', function() {
-        $location.path('/error');
-    });
-    $rootScope.$on('$routeChangeStart', function() {
-        $rootScope.isLoading = true;
-        console.log('Transition starts');
-    });
-    $rootScope.$on('$routeChangeSuccess', function() {
-      $timeout(function() {
-        $rootScope.isLoading = false;
-      }, 1000);
-    });
-  })
   .config(function ($routeProvider, $locationProvider) {
 
     $routeProvider
@@ -41,4 +27,18 @@ angular.module('OWMApp', ['ngAnimate', 'ngSanitize', 'ngRoute', 'mgcrea.ngStrap'
       .when('/error', {
         templateUrl: '404.html'
       });
+  })
+  .run(function($rootScope, $location, $timeout) {
+    $rootScope.$on('$routeChangeError', function() {
+        $location.path('/error');
+    });
+    $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.isLoading = true;
+        console.log('Transition starts');
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+      $timeout(function() {
+        $rootScope.isLoading = false;
+      }, 1000);
+    });
   });
